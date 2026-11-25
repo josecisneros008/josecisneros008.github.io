@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jose Cisneros | IT Operations & Technical Support</title>
+  <title>Jose Cisneros | IT Operations & Capstone Portfolio</title>
   <style>
     :root {
       --bg: #0f172a;
@@ -12,114 +12,217 @@
       --text-muted: #94a3b8;
       --primary: #38bdf8;
       --border: #334155;
+      --highlight: rgba(56, 189, 248, 0.1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px; }
-    .container { max-width: 900px; margin: 0 auto; }
-    header { text-align: center; padding: 45px 20px; border-bottom: 1px solid var(--border); }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    
+    /* STICKY NAVBAR - HACE LA PÁGINA NAVEGABLE */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 12px 20px;
+    }
+    .nav-container {
+      max-width: 950px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .nav-brand { font-weight: bold; color: #fff; text-decoration: none; font-size: 1.1rem; }
+    .nav-brand span { color: var(--primary); }
+    .nav-links { display: flex; gap: 15px; list-style: none; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.2s;
+      padding: 5px 8px;
+      border-radius: 4px;
+    }
+    .nav-links a:hover { color: var(--primary); background: var(--highlight); }
+    .nav-badge {
+      background: #0284c7;
+      color: #fff !important;
+      padding: 4px 10px !important;
+      border-radius: 20px !important;
+    }
+
+    .container { max-width: 950px; margin: 0 auto; padding: 20px; }
+    header { text-align: center; padding: 50px 20px 40px; border-bottom: 1px solid var(--border); }
     header h1 { font-size: 2.2rem; color: #fff; margin-bottom: 8px; }
     header p { font-size: 1.1rem; color: var(--primary); font-weight: 500; }
-    .bio { margin-top: 15px; color: var(--text-muted); max-width: 740px; margin-left: auto; margin-right: auto; font-size: 1rem; }
-    section { padding: 35px 0; border-bottom: 1px solid var(--border); }
-    h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+    .bio { margin-top: 15px; color: var(--text-muted); max-width: 760px; margin-left: auto; margin-right: auto; font-size: 1rem; }
     
-    /* Project Styles */
-    .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 25px; }
-    .project-card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 6px; }
-    .project-card .subtitle { color: var(--primary); font-size: 0.9rem; margin-bottom: 15px; font-weight: 500; }
-    .project-detail { margin-bottom: 12px; font-size: 0.95rem; }
-    .project-detail strong { color: #fff; }
-    .spiritual-box { background: rgba(56, 189, 248, 0.08); border-left: 3px solid var(--primary); padding: 12px 15px; border-radius: 0 6px 6px 0; margin-top: 15px; font-size: 0.93rem; }
-    .spiritual-box strong { color: var(--primary); }
-    .tag { display: inline-block; background: #0369a1; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 5px; margin-top: 10px; }
+    section { padding: 45px 0 25px; border-bottom: 1px solid var(--border); }
+    h2 { font-size: 1.45rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: #0369a1;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      vertical-align: middle;
+      font-weight: normal;
+    }
+    
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 22px; margin-bottom: 20px; }
+    .card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px; }
+    .card strong { color: #f1f5f9; }
+    
+    .refinement-box {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--primary);
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+    .refinement-box h3 { color: #fff; margin-bottom: 12px; font-size: 1.3rem; }
+    
+    .tag { display: inline-block; background: #0369a1; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 5px; margin-top: 5px; }
+    .btn { display: inline-block; background: var(--primary); color: #0f172a; font-weight: bold; text-decoration: none; padding: 9px 18px; border-radius: 6px; margin-top: 15px; font-size: 0.9rem; }
+    .btn:hover { opacity: 0.9; }
 
-    /* Resume Styles */
     .job { margin-bottom: 20px; }
     .job-title { font-weight: bold; color: #fff; font-size: 1.05rem; }
-    .job-company { color: var(--primary); font-size: 0.95rem; margin-bottom: 6px; }
-    .job ul { list-style-position: inside; color: var(--text-muted); font-size: 0.93rem; }
-    .job li { margin-bottom: 5px; }
-    
-    .btn { display: inline-block; background: var(--primary); color: #0f172a; font-weight: bold; text-decoration: none; padding: 10px 20px; border-radius: 6px; margin-top: 15px; transition: 0.2s; }
-    .btn:hover { opacity: 0.9; }
-    footer { text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.85rem; }
+    .job-company { color: var(--primary); font-size: 0.92rem; margin-bottom: 6px; }
+    .job ul { list-style-position: inside; color: var(--text-muted); font-size: 0.92rem; }
+    .job li { margin-bottom: 4px; }
+
+    footer { text-align: center; padding: 35px 0; color: var(--text-muted); font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
+  <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+  <nav>
+    <div class="nav-container">
+      <a href="#about" class="nav-brand">Jose Cisneros <span>· TSR3</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#principles">Guiding Principles</a></li>
+        <li><a href="#projects">Initiatives</a></li>
+        <li><a href="#refinement" class="nav-badge">Week 4 Refinement (QR App)</a></li>
+        <li><a href="#resume">Résumé</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
-    
-    <!-- PORTFOLIO INTRODUCTION  -->
-    <header>
+
+    <!-- SECCIÓN 1: ABOUT -->
+    <header id="about">
       <h1>Jose Antonio Cisneros Lino</h1>
       <p>Technical Support Representative 3 | IT Operations & Automation</p>
       <p class="bio">
-        IT professional with over 10 years of experience in technical support, endpoint provisioning, and IT operations. Currently serving at Information and Communication Services (ICS), supporting users across Argentina, Chile, Paraguay, and Uruguay. Skilled in multi-platform troubleshooting (Windows, iOS, Android, macOS), Microsoft 365, and Power Platform automation. Driven by continuous improvement, disciple leadership, and the goal of launching a community-focused tech startup to lift families and communities
+        IT professional with over 10 years of experience in technical support, endpoint provisioning, and workflow automation across South America South (ICS). Committed to continuous improvement, disciple leadership, and developing an enterprise technology startup to solve real community challenges and achieve financial stability for my family.
       </p>
       <a href="https://linkedin.com/in/jose-a-cisneros-99130011a/" target="_blank" class="btn">Connect on LinkedIn</a>
     </header>
 
-    <!-- 2. DETAILED PROJECT DESCRIPTION -->
-    <section>
-      <h2>Featured Initiatives & Technical Projects</h2>
+    <!-- SECCIÓN 2: PRINCIPIOS GUÍA -->
+    <section id="principles">
+      <h2>Faith & Guiding Principles <span class="badge">Gospel Integration</span></h2>
+      <p style="color: var(--text-muted); margin-bottom: 15px;">
+        <em>"You are not a data point. You're a beloved child of God with moral agency and divine destiny."</em> — Elder Gerrit W. Gong (2024)
+      </p>
 
-      <!-- Project 1 -->
-      <div class="project-card">
-        <h3>1. Computer Lifecycle Automation</h3>
-        <div class="subtitle">Technologies: Power Apps, Power Automate, Dataverse, ServiceNow, Teams</div>
-        <div class="project-detail"><strong>Task & Context:</strong> Managing employee computer assignments, hardware replacement approvals, and retirement tracking across four countries involved repetitive emails and manual spreadsheets. I contributed to designing a centralized workflow solution.</div>
-        <div class="project-detail"><strong>Challenges Faced:</strong> Communication gaps between IT, HR, and Finance caused delays and confusion regarding when a device was approved for replacement or ready for surplus.</div>
-        <div class="project-detail"><strong>How Overcome:</strong> We built a Power Apps interface connected to Dataverse and automated notifications via Power Automate, standardizing tracking and user confirmation in one place.</div>
-        <div class="project-detail"><strong>Results Achieved:</strong> Reduced manual follow-up emails, streamlined financial confirmations, and provided clear visibility on asset retirement readiness.</div>
-        <div class="spiritual-box">
-          <strong>Spiritual Growth & Lessons Learned:</strong> In Doctrine and Covenants 88:119, the Lord counsels us to "establish a house of order." Bringing order to chaotic operational processes is an act of service. Removing technical friction brings peace to workers and allows them to focus on their missions.
-        </div>
-        <span class="tag">Power Platform</span><span class="tag">Process Automation</span><span class="tag">ServiceNow</span>
+      <div class="card">
+        <h3>1. Multi-Platform Support and Diagnostic Resilience</h3>
+        <p>Troubleshooting hardware, networks, and operating systems across Windows, iOS, and Android under strict SLAs can cause user anxiety. Reflecting on Elder Joseph B. Wirthlin's (2008) <em>"Come What May, and Love It"</em>, I recognize that challenges refine our character. Approaching technical emergencies with patience transforms IT support into an act of Christian charity.</p>
       </div>
 
-      <!-- Project 2 -->
-      <div class="project-card">
-        <h3>2. YSA Institute Shared Devices Pilot</h3>
-        <div class="subtitle">Technologies: Windows Autopilot, Microsoft Intune, Entra ID, Device-Based Licensing</div>
-        <div class="project-detail"><strong>Task & Context:</strong> Implemented a standardized, centrally managed pilot for shared Windows computers used by students and instructors at Young Single Adult (YSA) Institutes of Religion.</div>
-        <div class="project-detail"><strong>Challenges Faced:</strong> Because multiple rotating students use the same machines, we had to ensure user privacy, block unauthorized installs, and configure Office Device-Based Licensing without requiring personal logins.</div>
-        <div class="project-detail"><strong>How Overcome:</strong> Leveraged Windows Autopilot for zero-touch provisioning and Microsoft Intune for configuration and security policies, ensuring a clean and consistent experience for each user.</div>
-        <div class="project-detail"><strong>Results Achieved:</strong> Delivered a reliable, ready-to-use workstation pilot that allows students to access Church educational resources without technical barriers.</div>
-        <div class="spiritual-box">
-          <strong>Spiritual Growth & Lessons Learned:</strong> This project reflected Elder Gong's teaching on "the gift of possibilities." Technology should be a doorway to gospel learning, not a barrier. Ensuring students have working computers enables them to focus on scripture study and faith.
-        </div>
-        <span class="tag">Windows Autopilot</span><span class="tag">Microsoft Intune</span><span class="tag">Endpoint Management</span>
+      <div class="card">
+        <h3>2. Process Automation and Proactive Agency</h3>
+        <p>Developing automated workflows using Power Automate and Power Apps directly reflects Doctrine and Covenants 58:26–28, which counsels us to be <em>"anxiously engaged in a good cause"</em> of our own free will. Automating repetitive administrative tasks exercises proactive agency, freeing colleagues from tedious manual drudgery.</p>
       </div>
 
-      <!-- Project 3 -->
-      <div class="project-card">
-        <h3>3. Multi-Country IT Asset Inventory Reconciliation</h3>
-        <div class="subtitle">Technologies: ServiceNow ITAM, Microsoft Intune, Entra ID, Asset Lifecycle</div>
-        <div class="project-detail"><strong>Task & Context:</strong> Audited and reconciled computer hardware discrepancies across ServiceNow, Intune, and Autopilot for Argentina, Chile, Paraguay, and Uruguay.</div>
-        <div class="project-detail"><strong>Challenges Faced:</strong> Years of reassignments and cross-border remote work created "ghost records" and mismatched serial numbers, making it difficult to verify device locations.</div>
-        <div class="project-detail"><strong>How Overcome:</strong> Performed database cross-checks, verified physical asset tags directly with local users, corrected ServiceNow records, and enforced strict surplus checklists.</div>
-        <div class="project-detail"><strong>Results Achieved:</strong> Corrected multi-assignment discrepancies, ensured accurate asset audits, and achieved compliance with Church hardware policies.</div>
-        <div class="spiritual-box">
-          <strong>Spiritual Growth & Lessons Learned:</strong> Connects directly to Luke 16:10: "He that is faithful in that which is least is faithful also in much." Managing physical assets and records is an act of honest stewardship. Caring for resources with integrity proves we can be trusted with greater responsibilities.
-        </div>
-        <span class="tag">IT Asset Management</span><span class="tag">ServiceNow</span><span class="tag">Auditing</span>
+      <div class="card">
+        <h3>3. Asset Governance and Honest Stewardship</h3>
+        <p>Managing hardware inventory across multiple countries requires high accuracy. In Luke 16:10 we learn that <em>"he who is faithful in that which is least is faithful also in much."</em> Managing computers and records with absolute integrity reflects divine stewardship (Elder Gong, 2021).</p>
       </div>
-
     </section>
 
-    <!--  PROFESSIONAL RÉSUMÉ -->
-    <section>
-      <h2>Professional Résumé</h2>
+    <!-- SECCIÓN 3: PROYECTOS -->
+    <section id="projects">
+      <h2>Technical Initiatives & Projects <span class="badge">Core Work</span></h2>
+
+      <div class="card">
+        <h3>1. Computer Lifecycle Automation</h3>
+        <p><strong>Stack:</strong> Power Platform (Power Apps, Power Automate) & Dataverse</p>
+        <p>Streamlined the multi-department device replacement process from provisioning to retirement across four countries, eliminating manual emails and paper forms (D&C 88:119).</p>
+        <span class="tag">Power Apps</span><span class="tag">Dataverse</span><span class="tag">ServiceNow</span>
+      </div>
+
+      <div class="card">
+        <h3>2. Multi-Country IT Asset Inventory Reconciliation</h3>
+        <p><strong>Stack:</strong> ServiceNow ITAM, Microsoft Intune, Entra ID</p>
+        <p>Investigated and resolved legacy multi-assignment discrepancies across Argentina, Chile, Paraguay, and Uruguay, ensuring physical hardware verification and honest temporal stewardship (Luke 16:10).</p>
+        <span class="tag">ServiceNow</span><span class="tag">Asset Management</span><span class="tag">Audit</span>
+      </div>
+
+      <div class="card">
+        <h3>3. YSA Institute Shared Devices Pilot</h3>
+        <p><strong>Stack:</strong> Windows Autopilot, Microsoft Intune, Device-Based Licensing</p>
+        <p>Implemented a zero-touch, standardized provisioning architecture for shared computers in Institutes of Religion, applying Elder Gong's (2024) principle of the <em>"gift of possibilities"</em> by removing technological friction for students.</p>
+        <span class="tag">Autopilot</span><span class="tag">Intune</span><span class="tag">Education</span>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: REFINAMIENTO DE LA SEMANA 4 (LA CLAVE DE TU TAREA) -->
+    <section id="refinement">
+      <h2>Week 4 Project Refinement: Mobile QR Asset Scanner <span class="badge" style="background:#0284c7;">Refined Deliverable</span></h2>
       
+      <div class="refinement-box">
+        <h3>Computer Lifecycle Automation (Power Apps & Dataverse)</h3>
+        
+        <p><strong>The Technical Challenge:</strong><br>
+        Managing device replacements was previously frustrating for field technicians due to slow, manual data entry of long alphanumeric serial numbers, delivery dates, usernames, and decommissioning statuses. Managers also lacked clear visibility into regional inventory. Working closely with my <strong>Project Manager</strong>, I redesigned manual records into an integrated Power Apps solution.</p>
+
+        <p><strong>The Technical Solution:</strong><br>
+        We integrated a mobile camera QR / Barcode scanner feature into Power Apps. Field technicians can now instantly scan the manufacturer serial numbers on laptops. The system automatically queries Dataverse, auto-populating device specifications, delivery dates, and usernames with pre-selected statuses, completely eliminating typing errors.</p>
+
+        <hr style="border: none; border-top: 1px solid var(--border); margin: 15px 0;">
+
+        <p><strong>Ethical Considerations & Leadership Impact:</strong></p>
+        <ul>
+          <li style="margin-bottom: 8px;"><strong>Respect for Coworkers (Dignity of Work):</strong> Reducing manual and repetitive typing relieved administrative stress for fellow technicians, allowing them to focus on real user support rather than tedious paperwork.</li>
+          <li style="margin-bottom: 8px;"><strong>Honest Stewardship (Luke 16:10):</strong> The mobile QR scan physically verifies on-site that a computer exists before replacement or surplus approval, eliminating ghost assets and human mistakes.</li>
+          <li><strong>Transparency for Management:</strong> Built a real-time reporting dashboard providing leadership with instant visibility into asset lifecycles, enabling fair, data-driven decisions on hardware renewals.</li>
+        </ul>
+
+        <div style="margin-top: 15px; padding: 10px 15px; background: rgba(56, 189, 248, 0.15); border-radius: 6px;">
+          <strong>Documented Impact:</strong> Eliminated serial number typing errors, reduced technician device provisioning time by over 50%, and gave management immediate, audit-ready reports.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: RÉSUMÉ -->
+    <section id="resume">
+      <h2>Professional Résumé <span class="badge">Credentials</span></h2>
+
       <div class="job">
         <div class="job-title">Technical Support Representative 3 (TSR3)</div>
         <div class="job-company">The Church of Jesus Christ of Latter-day Saints (ICS – SAMS) | Jul 2022 – Present</div>
         <ul>
-          <li>Provide Tier-2 remote and on-site technical support for users across Argentina, Chile, Paraguay, and Uruguay.</li>
-          <li>Support endpoint provisioning and device configuration using Microsoft Intune, Windows Autopilot, and Entra ID.</li>
-          <li>Manage computer lifecycle: assignments, hardware surplus, returns, and inventory audits in ServiceNow.</li>
-          <li>Develop Power Automate workflows and Power Apps solutions to automate asset tracking and notifications.</li>
-          <li>Operate Blackmagic ATEM audiovisual switchers and Cisco Meraki networks for international leadership conferences.</li>
+          <li>Provide Tier-2 remote and on-site support for users across Argentina, Chile, Paraguay, and Uruguay.</li>
+          <li>Configure device provisioning using Windows Autopilot, Microsoft Intune, and Entra ID.</li>
+          <li>Manage computer lifecycle: assignments, surplus, and inventory reconciliation in ServiceNow.</li>
+          <li>Develop Power Apps and Power Automate flows to streamline asset tracking and verification.</li>
+          <li>Operate Blackmagic ATEM switchers and Cisco Meraki networks for international leadership conferences.</li>
         </ul>
       </div>
 
@@ -127,32 +230,24 @@
         <div class="job-title">Customer & Operations Support Manager</div>
         <div class="job-company">Remitee S.A. / Tecnoproser Co. | Jan 2017 – 2022</div>
         <ul>
-          <li>Managed support operations for fintech remittance platforms in Spanish and English under strict SLAs.</li>
-          <li>Designed ticketing workflows in Jira, increasing team operational resolution efficiency by 70%.</li>
-          <li>Extracted and analyzed transactional data using SQL queries to deliver KPI reports for executive managers.</li>
+          <li>Managed fintech support operations in Spanish and English under strict SLAs.</li>
+          <li>Designed ticketing workflows in Jira, boosting resolution efficiency by 70%.</li>
+          <li>Extracted and analyzed transactional data with SQL queries for executive presentations.</li>
         </ul>
       </div>
 
-     <h3 style="color: #fff; margin-top: 25px; margin-bottom: 12px; font-size: 1.1rem;">Education & Certifications</h3>
+      <h3 style="color: #fff; margin-top: 20px; margin-bottom: 10px; font-size: 1.1rem;">Education & Certifications</h3>
       <ul style="list-style-position: inside; color: var(--text-muted); font-size: 0.93rem;">
-        <li><strong>B.S. in Information Technology, System Administration:</strong> Ensign College / BYU-Pathway Worldwide (Expected Dec. 2027)</li>
+        <li><strong>B.S. in Information Technology, System Administration:</strong> Ensign College / BYU-Pathway (Expected 2027)</li>
         <li><strong>IT Professional Certificate:</strong> Ensign College / BYU-Pathway Worldwide (Awarded 2026)</li>
         <li><strong>Technical Support Engineer Certificate:</strong> Ensign College / BYU-Pathway (Graduated Nov. 2025)</li>
-        <li><strong>Industry Certifications:</strong> TestOut + CompTIA: PC Pro & Client Pro</li>
+        <li><strong>Certifications:</strong> TestOut + CompTIA: PC Pro & Client Pro</li>
         <li><strong>Electronic Technician Diploma:</strong> Technical School N12 (Libertador Gral. San Martin, Argentina)</li>
       </ul>
     </section>
 
-    <!--  FAITH & GUIDING PRINCIPLES -->
-    <section>
-      <h2>Faith & Guiding Principles</h2>
-      <div class="project-detail"><strong>1. Faith Through Action (3 Nephi 13:19–22):</strong> Keeping an eye single to God. Technical support is an act of proactive service to ensure others can fulfill their responsibilities without hindrance.</div>
-      <div class="project-detail"><strong>2. Resilient Diligence and Grit (D&C 122:7):</strong> Troubleshooting complex outages across multiple countries builds endurance, teaching me to view roadblocks as refining experiences.</div>
-      <div class="project-detail"><strong>3. Divine Stewardship & Consecration:</strong> Handling data and computer assets with sacred care, working toward building an ethical startup that creates jobs and lifts my loved ones.</div>
-    </section>
-
     <footer>
-      <p> 2026 Jose Antonio Cisneros Lino · Built with GitHub Pages · IT 497 Capstone</p>
+      <p>© 2026 Jose Antonio Cisneros Lino · <a href="#about" style="color: var(--primary); text-decoration: none;">Back to Top ↑</a></p>
     </footer>
 
   </div>
